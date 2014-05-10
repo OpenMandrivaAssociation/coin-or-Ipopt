@@ -10,6 +10,7 @@ Release:	4%{?dist}
 License:	EPL and GPLv2+
 URL:		https://projects.coin-or.org/%{module}
 Source0:	http://www.coin-or.org/download/pkgsource/%{module}/%{module}-%{version}.tgz
+Source1:	%{name}.rpmlintrc
 BuildRequires:	blas-devel
 BuildRequires:	blacs-openmpi-devel
 BuildRequires:	gcc-gfortran
