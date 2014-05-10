@@ -1,0 +1,15 @@
+diff -up Ipopt-3.11.0/Makefile.in.orig Ipopt-3.11.0/Makefile.in
+--- Ipopt-3.11.0/Makefile.in.orig	2013-05-11 12:24:29.042561718 -0300
++++ Ipopt-3.11.0/Makefile.in	2013-05-11 12:25:06.362563147 -0300
+@@ -499,9 +499,9 @@ tmpdir = tmpdir
+ libipopt = libipopt.a
+ pkgconfiglibdir = $(libdir)/pkgconfig
+ pkgconfiglib_DATA = ipopt.pc
+-addlibsdir = $(DESTDIR)$(datadir)/coin/doc/Ipopt
++addlibsdir = $(DESTDIR)$(datadir)/doc/coin-or-$(PACKAGE_NAME)
+ DocFiles = README AUTHORS LICENSE
+-DocInstallDir = $(datadir)/coin/doc/$(PACKAGE_NAME)
++DocInstallDir = $(datadir)/doc/coin-or-$(PACKAGE_NAME)
+ all: all-recursive
+ 
+ .SUFFIXES:

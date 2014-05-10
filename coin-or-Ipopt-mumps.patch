@@ -1,0 +1,32 @@
+diff -up Ipopt-3.11.0/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp.orig Ipopt-3.11.0/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp
+--- Ipopt-3.11.0/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp.orig	2013-05-11 12:37:24.854591427 -0300
++++ Ipopt-3.11.0/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp	2013-05-11 12:37:38.689591957 -0300
+@@ -10,15 +10,7 @@
+ //           (major revision)
+ //           (incorporated by AW on 2006-11-11 into Ipopt package)
+ 
+-// The first header to include is the one for MPI.  We need to make sure
+-// that we are using C calling mangling
+-extern "C"
+-{
+-  // The following line is a fix for otherwise twice-defined global variable
+-  // (This would have to be taken out for a parallel MUMPS version!)
+-# define MPI_COMM_WORLD IPOPT_MPI_COMM_WORLD
+-# include "mpi.h"
+-}
++# include <mpi.h>
+ 
+ #include "IpMumpsSolverInterface.hpp"
+ 
+diff -up Ipopt-3.11.0/src/Interfaces/Makefile.in.orig Ipopt-3.11.0/src/Interfaces/Makefile.in
+--- Ipopt-3.11.0/src/Interfaces/Makefile.in.orig	2013-04-13 12:46:45.000000000 -0300
++++ Ipopt-3.11.0/src/Interfaces/Makefile.in	2013-05-11 12:37:38.692591957 -0300
+@@ -386,7 +386,7 @@ libipopt_la_DEPENDENCIES = $(IPALLLIBS)
+ libipopt_la_LDFLAGS = $(LT_LDFLAGS)
+ 
+ # This line is necessary to allow VPATH compilation
+-DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)` -I$(top_builddir)/src/Common
++DEFAULT_INCLUDES = -I. -I`$(CYGPATH_W) $(srcdir)` -I$(top_builddir)/src/Common -I$(top_builddir)/src/LinAlg -I$(top_builddir)/src/Algorithm -I$(top_builddir)/src/Algorithm/LinearSolvers -I$(top_builddir)/src/contrib/CGPenalty -I$(top_builddir)/src/LinAlg/TMatrices -I$(top_builddir)/src/contrib/LinearSolverLoader/
+ 
+ # Astyle stuff
+ ASTYLE_FILES = \
